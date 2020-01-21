@@ -1,0 +1,27 @@
+<form [formGroup]="loginform" (ngSubmit)="login()">
+  <div>
+    <label for="email">Email:</label>
+    <input type="email" class="form-control col-md-4" id="email" placeholder="Enter email" formControlName="email">
+    <div *ngIf="loginform.controls?.email?.invalid">
+            
+      <span class="hass-error-message" *ngIf="loginform.controls?.email?.errors?.pattern">
+        <p class="validation">*Please enter valid Firstname.</p>
+      </span>
+    </div>
+  </div>
+  <div>
+    <label for="pwd">Password:</label>
+    <input type="password" class="form-control col-md-4" id="pwd" placeholder="Enter password" formControlName="pswd">
+    <div *ngIf="loginform.controls?.pswd?.invalid">
+                      
+      <span class="hass-error-message" *ngIf="loginform.controls?.pswd?.errors?.minlength">
+        <p class="validation">*Minimum 5 character.</p>
+      </span>
+      <span class="hass-error-message" *ngIf="loginform.controls?.pswd?.errors?.maxlength">
+        <p class="validation">*Maximum 10 character.</p>
+      </span>
+      
+    </div>
+  </div>  
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>

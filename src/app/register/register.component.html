@@ -1,0 +1,48 @@
+<form [formGroup]="registerform" (ngSubmit)="register()">
+    <div>
+        <label for="name">Name:</label>
+        <input type="email" class="form-control col-md-4" id="email" placeholder="Enter Name" formControlName="name">
+        <div *ngIf="registerform.controls?.name?.invalid">
+                
+            <span class="hass-error-message" *ngIf="registerform.controls?.name?.errors?.pattern">
+            <p class="validation">*Please Enter valid Name.</p>
+            </span>
+        </div>
+        </div>
+    <div>
+      <label for="email">Email:</label>
+      <input type="email" class="form-control col-md-4" id="email" placeholder="Enter email" formControlName="email">
+      <div *ngIf="registerform.controls?.email?.invalid">
+              
+        <span class="hass-error-message" *ngIf="registerform.controls?.email?.errors?.pattern">
+          <p class="validation">*Please enter valid Firstname.</p>
+        </span>
+      </div>
+    </div>
+    <div>
+      <label for="pwd">Password:</label>
+      <input type="password" class="form-control col-md-4" id="pwd" placeholder="Enter password" formControlName="pswd">
+      <div *ngIf="registerform.controls?.pswd?.invalid">
+                        
+        <span class="hass-error-message" *ngIf="registerform.controls?.pswd?.errors?.minlength">
+          <p class="validation">*Minimum 5 character.</p>
+        </span>
+        <span class="hass-error-message" *ngIf="registerform.controls?.pswd?.errors?.maxlength">
+          <p class="validation">*Maximum 10 character.</p>
+        </span>
+        
+      </div>
+    </div>  
+    <div>
+        <label for="gender">Gender:</label>
+        <input type="radio" value="0" class="form-control" id="pwd" formControlName="gender">Male
+        <input type="radio" value="1" class="form-control" id="pwd" formControlName="gender">Female
+    </div>
+    <!-- <div>
+        <label for="pwd">Subject:</label>
+        <input type="checkbox" value="0" class="form-control col-md-4" id="pwd" formControlName="subject">
+        <input type="checkbox" value="1" class="form-control col-md-4" id="pwd" formControlName="subject">
+    </div>   -->
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  
